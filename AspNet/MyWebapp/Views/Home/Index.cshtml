@@ -1,0 +1,25 @@
+﻿@model MyWebapp.Models.HomeViewModel
+@{
+    ViewBag.Title = "Home";
+}
+
+<h1>My web app in ASP.NET</h1>
+
+<h2>Calculator</h2>
+
+@using (Html.BeginForm())
+{
+    <text>100 / </text>
+    
+    @Html.TextBoxFor(model => model.DivideBy)
+
+    <text> = </text>
+
+    @Model.Result
+}
+
+<h2>Info</h2>
+
+<p>
+    Running .NET <span id="netversion"></span> on <span id="machine"></span>;
+</p>
