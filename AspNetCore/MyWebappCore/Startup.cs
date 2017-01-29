@@ -22,11 +22,18 @@ namespace MyWebappCore
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IConfiguration>(Configuration);
             services.AddMvc();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
         }
     }
